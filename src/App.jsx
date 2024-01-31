@@ -35,8 +35,24 @@ const App = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <img src={loading} alt="" className="w-20" />
+      <div className="container mx-auto">
+        {/* Form */}
+        <div className="my-12 mx-auto text-center">
+          <form>
+            <input
+              type="text"
+              className="border border-slate-300 py-1 px-8 rounded placeholder:capitalize outline-none mx-1"
+              placeholder="search image term..."
+            />
+            <button className="bg-green-500 py-1 px-4 rounded text-white hover:bg-green-700">
+              Search
+            </button>
+          </form>
+        </div>
+        {/* Loading GIF */}
+        <div className="flex justify-center items-center mt-40">
+          <img src={loading} alt="" className="w-20 h-20" />
+        </div>
       </div>
     );
   }
@@ -61,7 +77,7 @@ const App = () => {
         </div>
         {/* No Image Found Message */}
         <div className="mt-32 flex justify-center items-center">
-          <img src={image404} className="w-88" alt="" />
+          <img src={image404} className="w-88 h-88" alt="" />
         </div>
       </div>
     );
@@ -85,7 +101,7 @@ const App = () => {
         </form>
       </div>
       {/* Image card */}
-      <div className="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4">
+      <div className="flex flex-col items-center md:items-stretch md:grid md:grid-cols-3 2xl:grid-cols-4 md:gap-5 gap-3">
         {images.map((image) => {
           return <ImageCard key={image.id} {...image} />;
         })}
